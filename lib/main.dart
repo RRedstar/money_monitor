@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'homepage.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //initialize hive
+  await Hive.initFlutter();
+
+  // open the box
+  await Hive.openBox('mon_compte');
+
+  // run the app
   runApp(const MyApp());
 }
 

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TransRow extends StatelessWidget {
   final tr;
-
+  var formater = NumberFormat("#,###",'fr_FR');
   TransRow(this.tr);
 
   @override
@@ -27,7 +28,7 @@ class TransRow extends StatelessWidget {
             children: [
               Text(tr['date']),
               Text(
-                tr['montant'].toString(),
+                "${formater.format(tr['montant'])} Ar",
                 style: TextStyle(
                   color: tr['debit'] ? Colors.red : Colors.green,
                   fontWeight: FontWeight.bold,
